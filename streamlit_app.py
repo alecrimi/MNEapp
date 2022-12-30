@@ -5,7 +5,7 @@ from dipy.io.streamline import load_tractogram, save_tractogram
 
 # Display a file upload widget
 trk_file = st.file_uploader("Upload a TRK file")
- 
+st.write(trk_file) 
 
 # Load the TRK file using DiPy
 if trk_file is not None:
