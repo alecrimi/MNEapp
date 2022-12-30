@@ -2,5 +2,5 @@
 numpy
 scipy
 matplotlib
-mne==0.21.0
+dipy
 streamlit
