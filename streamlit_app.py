@@ -9,7 +9,7 @@ st.write(trk_file)
 
 # Load the TRK file using DiPy
 if trk_file is not None:
-    cc_trk = load_tractogram(trk_file, 'same') #trk, hdr = dipy.io.streamline.load_trk(trk_file)
+    cc_trk = load_tractogram(trk_file.name, 'same') #trk, hdr = dipy.io.streamline.load_trk(trk_file)
     st.write("TRK file successfully loaded!")
 
     # Display the TRK file using the Streamlit 3D scatterplot widget
