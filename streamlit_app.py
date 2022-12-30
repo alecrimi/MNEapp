@@ -10,8 +10,9 @@ st.write(trk_file.name)
 # Cache the uploaded file
 @st.cache
 def get_uploaded_file():
-    return uploaded_file
+    return trk_file 
 
+trk_file = get_uploaded_file()
 # Load the TRK file using DiPy
 if trk_file is not None:
     cc_trk = load_tractogram(trk_file.name, 'same') #trk, hdr = dipy.io.streamline.load_trk(trk_file)
