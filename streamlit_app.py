@@ -2,7 +2,7 @@ import streamlit as st
 import dipy as dipy
 import os
 from dipy.io.streamline import load_tractogram, save_tractogram
-from dipy.viz import window, actor, has_fury
+from dipy.viz import window, actor, has_fury, colormap
 '''
 # Display a file upload widget
 upload = st.file_uploader("Upload a TRK file", type=['trk'])
@@ -30,15 +30,14 @@ if user_trk is not None:
     st.write("TRK file successfully loaded!")
 
     # Display the TRK file using the Streamlit 3D scatterplot widget
-    #from dipy.viz import colormap
     # Prepare the display objects.
     #color = colormap.line_colors(trk)
 
-    #streamlines_actor = actor.line(trk, colormap.line_colors(trk))
+    streamlines_actor = actor.line(trk, colormap.line_colors(trk))
 
     # Create the 3D display.
     scene = window.Scene()
-    scene.add(trk)
+    scene.add(streamlines_actor)
     
     #st.pyplot(dipy.viz.window.show(trk, title='TRK file', size=(600, 600)))
     st.pyplot(window.show(scene))
