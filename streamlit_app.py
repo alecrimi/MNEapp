@@ -48,20 +48,10 @@ else:
     st.write("No TRK file selected")
 '''
 import streamlit as st
-import nibabel as nib
-import matplotlib.cm as cm
+import pyvista as pv
 
-# Load the NII file
-nii = nib.load('1103_3.nii.gz')
+# Load the PyVista object
+obj = pv.read('path/to/file.obj')
 
-# Extract the data from the NII file
-data = nii.get_fdata()
-
-# Customize the appearance of the image
-cmap = cm.gray
-min_intensity = data.min()
-max_intensity = data.max()
-
-# Add the data to the Streamlit app
-st.image(data, cmap=cmap, min_intensity=min_intensity, max_intensity=max_intensity)
-
+# Add the object to the Streamlit app, allowing rotation
+st.pyvista_mesh(obj, rotate=True)
