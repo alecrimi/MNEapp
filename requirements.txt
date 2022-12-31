@@ -4,3 +4,4 @@ scipy
 matplotlib
 dipy
 streamlit
+fury
