@@ -1,7 +1,6 @@
 import streamlit as st
 import dipy as dipy
 import os
-import dipy.io as dipy_io
 from dipy.io.streamline import load_tractogram, save_tractogram
 '''
 # Display a file upload widget
