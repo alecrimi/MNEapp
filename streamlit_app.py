@@ -2,6 +2,7 @@ import streamlit as st
 import dipy as dipy
 import os
 from dipy.io.streamline import load_tractogram, save_tractogram
+from dipy.viz import window, actor, has_fury
 '''
 # Display a file upload widget
 upload = st.file_uploader("Upload a TRK file", type=['trk'])
