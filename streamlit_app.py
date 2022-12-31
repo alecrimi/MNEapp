@@ -26,9 +26,21 @@ user_trk= 'https://github.com/alecrimi/MNEapp/blob/main/CST.trk?raw=true'
 
 if user_trk is not None:
     trk = load_tractogram(user_trk, 'same') #trk, hdr = dipy.io.streamline.load_trk(trk_file)
-    #st.write("TRK file successfully loaded!")
+    st.write("TRK file successfully loaded!")
 
     # Display the TRK file using the Streamlit 3D scatterplot widget
-    st.pyplot(dipy.viz.window.show(trk, title='TRK file', size=(600, 600)))
+    from dipy.viz import colormap
+    # Prepare the display objects.
+    color = colormap.line_colors(trk)
+
+    streamlines_actor = actor.line(trk,
+                                   colormap.line_colors(trk))
+
+    # Create the 3D display.
+    scene = window.Scene()
+    scene.add(streamlines_actor)
+    
+    #st.pyplot(dipy.viz.window.show(trk, title='TRK file', size=(600, 600)))
+    st.pyplot(window.show(scene))
 else:
     st.write("No TRK file selected")
