@@ -29,16 +29,15 @@ if user_trk is not None:
     st.write("TRK file successfully loaded!")
 
     # Display the TRK file using the Streamlit 3D scatterplot widget
-    from dipy.viz import colormap
+    #from dipy.viz import colormap
     # Prepare the display objects.
-    color = colormap.line_colors(trk)
+    #color = colormap.line_colors(trk)
 
-    streamlines_actor = actor.line(trk,
-                                   colormap.line_colors(trk))
+    #streamlines_actor = actor.line(trk, colormap.line_colors(trk))
 
     # Create the 3D display.
     scene = window.Scene()
-    scene.add(streamlines_actor)
+    scene.add(trk)
     
     #st.pyplot(dipy.viz.window.show(trk, title='TRK file', size=(600, 600)))
     st.pyplot(window.show(scene))
