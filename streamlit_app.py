@@ -1,8 +1,8 @@
 import streamlit as st
 import dipy as dipy
 import os
-#from dipy.io.streamline import load_tractogram, save_tractogram
-import nibabel as nib
+from dipy.io.streamline import load_tractogram, save_tractogram
+#import nibabel as nib
 from dipy.viz import window, actor, has_fury, colormap
 '''
 # Display a file upload widget
