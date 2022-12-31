@@ -51,7 +51,7 @@ import streamlit as st
 import pyvista as pv
 
 # Load the PyVista object
-obj = pv.read('path/to/file.obj')
+obj = pv.read('Brain.obj')
 
 # Add the object to the Streamlit app, allowing rotation
 st.pyvista_mesh(obj, rotate=True)
