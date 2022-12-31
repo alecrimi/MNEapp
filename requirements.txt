@@ -5,3 +5,4 @@ matplotlib
 dipy
 streamlit
 fury
+opencv-python-headless
