@@ -23,6 +23,7 @@ def get_uploaded_image():
 
 user_trk = get_uploaded_image()
 '''
+'''
 # Load the TRK file using DiPy
 user_trk= 'CST_L.trk' #'https://github.com/alecrimi/MNEapp/blob/main/CST.trk' #?raw=true
 
@@ -45,3 +46,22 @@ if user_trk is not None:
     st.pyplot(window.show(scene))
 else:
     st.write("No TRK file selected")
+'''
+import streamlit as st
+import nibabel as nib
+import matplotlib.cm as cm
+
+# Load the NII file
+nii = nib.load('1103_3.nii.gz')
+
+# Extract the data from the NII file
+data = nii.get_fdata()
+
+# Customize the appearance of the image
+cmap = cm.gray
+min_intensity = data.min()
+max_intensity = data.max()
+
+# Add the data to the Streamlit app
+st.image(data, cmap=cmap, min_intensity=min_intensity, max_intensity=max_intensity)
+
