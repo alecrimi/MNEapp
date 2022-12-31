@@ -27,7 +27,7 @@ user_trk = get_uploaded_image()
 user_trk= 'https://github.com/alecrimi/MNEapp/blob/main/CST.trk?raw=true'
 
 if user_trk is not None:
-    trk = load_trk(user_trk) # load_tractogram(user_trk ) #trk, hdr = dipy.io.streamline.load_trk(trk_file)
+    trk = load_trk(user_trk, 'same') # load_tractogram(user_trk, 'same' ) #trk, hdr = dipy.io.streamline.load_trk(trk_file)
     #trk = nib.streamlines.load(user_trk)
     st.write("TRK file successfully loaded!")
 
