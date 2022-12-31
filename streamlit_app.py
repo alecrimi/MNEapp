@@ -1,7 +1,7 @@
 import streamlit as st
 import dipy as dipy
 import os
-from dipy.io.streamline import load_tractogram, save_tractogram
+from dipy.io.streamline import load_tractogram, save_tractogram,load_trk
 #import nibabel as nib
 from dipy.viz import window, actor, has_fury, colormap
 '''
@@ -27,15 +27,15 @@ user_trk = get_uploaded_image()
 user_trk= 'https://github.com/alecrimi/MNEapp/blob/main/CST.trk?raw=true'
 
 if user_trk is not None:
-    trk = load_tractogram(user_trk ) #trk, hdr = dipy.io.streamline.load_trk(trk_file)
+    trk = load_trk(user_trk) # load_tractogram(user_trk ) #trk, hdr = dipy.io.streamline.load_trk(trk_file)
     #trk = nib.streamlines.load(user_trk)
     st.write("TRK file successfully loaded!")
 
     # Display the TRK file using the Streamlit 3D scatterplot widget
     # Prepare the display objects.
-    #color = colormap.line_colors(trk)
+    color = colormap.line_colors(trk)
 
-    streamlines_actor = actor.line(trk, colormap.line_colors(trk.streamlines))
+    streamlines_actor = actor.line(trk, color)
 
     # Create the 3D display.
     scene = window.Scene()
